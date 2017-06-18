@@ -2,6 +2,11 @@ import scrapy
 
 
 class ZarascraperItem(scrapy.Item):
+    """
+    Items fields describing the attributes of an item that are going to be fetched during scrapping.
+    All these attributes will be acquired and will be set equal to its value regardless of the page structure
+    being followed.
+    """
     id = scrapy.Field()
     type = scrapy.Field()
     kind = scrapy.Field()

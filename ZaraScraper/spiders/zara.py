@@ -88,9 +88,13 @@ class ZaraSpider(CrawlSpider):
             return item
 
     def is_json(self, myjson):
+        """
+        This method validates the json passed to the method is a valid json or is an invalid one.
+        :param myjson: json passed as a param that needs to be verified
+        :return: boolean
+        """
         try:
             json_object = json.loads(myjson)
         except ValueError, e:
             return False
         return True
-
