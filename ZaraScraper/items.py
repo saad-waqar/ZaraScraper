@@ -19,3 +19,5 @@ class ZarascraperItem(scrapy.Item):
     url = scrapy.Field()
     timestamp = scrapy.Field()
     care = scrapy.Field()
+    country_code = scrapy.Field()
+    currency = scrapy.Field()
