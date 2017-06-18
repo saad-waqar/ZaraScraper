@@ -13,7 +13,6 @@ product_ids = []
 class ZaraSpider(CrawlSpider):
     name = "zara"
     download_delay = 0.25
-    # allowed_domains = ["zara.com"]
     start_urls = ["https://www.zara.com"]
 
     rules = (
@@ -24,6 +23,11 @@ class ZaraSpider(CrawlSpider):
     )
 
     def parse_item(self, response):
+        """
+        This method extracts a single product details after reaching to product detail page.
+        :param response: response containing the the product details in raw form
+        :return:
+        """
         data = response.xpath(constants.script_tag_data_extract)[3]
         json_input = data.re(constants.product_re)[0]
         country_code = data.re(constants.countrycode_re)[0]
@@ -43,6 +47,11 @@ class ZaraSpider(CrawlSpider):
             yield self.compile_item(product_metadata, response, country_code, currency)
 
     def filter_sizes(self, size_lists):
+        """
+        This method extracts the SKUs of a single product.
+        :param size_lists: array containing all colors of to that specific product which further contain sizes
+        :return:
+        """
         result = []
         for color in size_lists:
             for size in color['sizes']:
@@ -50,6 +59,11 @@ class ZaraSpider(CrawlSpider):
         return result
 
     def filter_color_objects(self, color_list):
+        """
+        This method extracts the data related to color of the product
+        :param color_list: array containing colors of the product
+        :return:
+        """
         result = []
         for color in color_list:
             if 'colorImage' in color and 'colorCutImg' in color:
@@ -60,6 +74,15 @@ class ZaraSpider(CrawlSpider):
         return result
 
     def compile_item(self, product_metadata, response, country_code, currency):
+        """
+        This method combines all the parsed data and compiles them into a single item object so that it can be
+        written to a .json file later on.
+        :param product_metadata: product details extracted from the response
+        :param response: product details in raw form
+        :param country_code: country code of the product belonging to
+        :param currency: currency defined for the product
+        :return:
+        """
         if product_metadata['id'] not in product_ids:
             product_ids.append(product_metadata['id'])
             item = ZarascraperItem()
