@@ -5,7 +5,22 @@ import json
 from datetime import datetime
 from itertools import chain
 import re
-
+import scrapy
+# product_ids = []
+# class ZaraSpider(scrapy.Spider):
+#     name = 'zara'
+#     download_delay = 0.25
+#     allowed_domains = ['zara.com']
+#     start_urls = ['https://www.zara.com/vn/vi/nam/qu%E1%BA%A7n/xem-t%E1%BA%A5t-c%E1%BA%A3/qu%C3%A2%CC%80n-da%CC%81ng-carrot-fit-c719514p4900642.html'
+#                     ,'https://www.zara.com/ie/en/kids/mini-%7C-0-12-months/shop-by-look/-c810511p4383542.html'
+#                     ,'https://www.zara.com/ie/en/kids/baby-girl-%7C-3-months-4-years/shop-by-look/-c719506p4594526.html'
+#                     ,'https://www.zara.com/il/en/kids/mini-%7C-0-12-months/shop-by-look/-c810511p4521674.html'
+#                     ,'https://www.zara.com/il/en/kids/mini-%7C-0-12-months/shop-by-look/-c810511p4521683.html'
+#                     ,'https://www.zara.com/il/en/kids/mini-%7C-0-12-months/organic-cotton/-c802506p4334032.html'
+#                     ,'https://www.zara.com/il/en/kids/baby-boy-%7C-3-months---4-years/shop-by-look/-c719507p4497098.html'
+#                     ,'https://www.zara.com/il/en/kids/girl-%7C-4-14-years/shop-by-look/-c810509p4433021.html'
+#                     ,'https://www.zara.com/il/en/kids/girl-%7C-4-14-years/holidays-collection/-c816004p4763344.html'
+#                   ]
 product_ids = []
 
 

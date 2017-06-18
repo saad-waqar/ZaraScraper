@@ -23,7 +23,7 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefo
 ROBOTSTXT_OBEY = True
 
 
-LOG_LEVEL = 'ERROR'
+LOG_LEVEL = 'INFO'
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
